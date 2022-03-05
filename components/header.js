@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import { classNames } from '../helper/class'
 
 const navigation = [
-    { name: 'Dashboard', href: '/dashboard' },
+    { name: 'Dashboard', href: '/' },
     { name: 'Settings', href: '/settings' },
 ]
 

@@ -1,0 +1,141 @@
+.react-flow {
+    // HACK: fix this better
+    height: calc(100vh - 84px - 64px);
+}
+
+.react-flow__selection {
+    background: rgba(0, 89, 220, 0.08);
+    border: 1px dotted rgba(0, 89, 220, 0.8);
+}
+
+.react-flow__edge {
+    &.selected {
+        .react-flow__edge-path {
+            stroke: #555;
+        }
+    }
+
+    &.animated path {
+        stroke-dasharray: 5;
+        animation: dashdraw 0.5s linear infinite;
+    }
+
+    &.updating {
+        .react-flow__edge-path {
+            stroke: #777;
+        }
+    }
+}
+
+.react-flow__edge-path {
+    stroke: #b1b1b7;
+    stroke-width: 1;
+}
+
+.react-flow__edge-text {
+    font-size: 10px;
+}
+
+.react-flow__edge-textbg {
+    fill: white;
+}
+
+.react-flow__connection-path {
+    stroke: #b1b1b7;
+    stroke-width: 1;
+}
+
+.react-flow__node {
+    cursor: grab;
+}
+
+.react-flow__node {
+    border-radius: 3px;
+    width: 150px;
+    font-size: 12px;
+    color: #222;
+    text-align: center;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #7371b5;
+}
+
+.react-flow__node-default.selectable,
+.react-flow__node-input.selectable,
+.react-flow__node-output.selectable {
+    &:hover {
+        box-shadow: 0 1px 4px 1px rgba(0, 0, 0, 0.08);
+    }
+}
+
+.react-flow__node  {
+    background: #222137;
+
+    &.selected,
+    &.selected:hover {
+        box-shadow: 0 0 0 0.5px #1a192b;
+    }
+
+    .react-flow__handle {
+        background: #1a192b;
+    }
+}
+
+.react-flow__nodesselection-rect {
+    background: rgba(0, 89, 220, 0.08);
+    border: 1px dotted rgba(0, 89, 220, 0.8);
+}
+
+.react-flow__handle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #555;
+    border: 1px solid white;
+    border-radius: 100%;
+
+    &.connectable {
+        cursor: crosshair;
+    }
+}
+
+.react-flow__minimap {
+    background-color: rgb(26, 25, 43);
+    path {
+        fill: rgba(34, 33, 56, 0.7);
+    }
+    rect {
+        fill: rgba(34, 33, 56, 0.7);
+        stroke: rgb(85, 85, 85);
+    }
+}
+
+.react-flow__controls {
+    box-shadow: 0 0 2px 1px rgb(0 0 0 / 8%);
+
+    &-button {
+        background: rgb(34, 33, 56);
+        border-bottom: 1px solid rgba(226, 232, 240, 0.2);
+        box-sizing: content-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+        user-select: none;
+        padding: 5px;
+
+        svg {
+            max-width: 12px;
+            max-height: 12px;
+            path {
+                fill: rgb(248, 248, 242);
+            }
+        }
+
+        &:hover {
+            background: rgb(34, 33, 56);
+        }
+    }
+}

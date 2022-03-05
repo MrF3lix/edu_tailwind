@@ -1,11 +1,13 @@
 import Script from 'next/script'
 import { Header } from '../components/header'
 import '../styles/globals.css'
+import 'react-flow-renderer/dist/style.css';
+import './theme-custom.scss';
 
 const App = ({ Component, pageProps }) => (
     <>
         <Script
-            src="theme.js"
+            src="/theme.js"
             strategy="beforeInteractive"
         />
         <div className="flex flex-col min-h-[100vh] bg-white dark:bg-gray-900">
