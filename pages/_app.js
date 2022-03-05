@@ -1,8 +1,8 @@
 import Script from 'next/script'
 import { Header } from '../components/header'
-import '../styles/globals.css'
+import '../styles/globals.scss'
 import 'react-flow-renderer/dist/style.css';
-import './theme-custom.scss';
+import '../styles/theme-custom.scss';
 
 const App = ({ Component, pageProps }) => (
     <>

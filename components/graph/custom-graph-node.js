@@ -6,12 +6,12 @@ export const CustomGraphNode = ({ data }) => {
 
     return (
         <div className="flex flex-col">
-            <div className="p-2 text-gray-100 border-b border-gray-100 text-align-left">
+            <div className="p-2 text-gray-900 dark:text-gray-100 border-b border-gray-900 dark:border-gray-100 text-align-left">
                 {data.title}
             </div>
             <div className="p-2">
                 <Handle type="target" position={Position.Left} />
-                <div className="text-gray-100">{data.text}</div>
+                <div className="text-gray-900 dark:text-gray-100">{data.text}</div>
                 {data.outputs?.map((output, i) => (
                     <Handle
                         key={i}

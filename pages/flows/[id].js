@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import ReactFlow, { removeElements, addEdge, MiniMap, Controls, Background, } from 'react-flow-renderer/nocss';
-import { CustomGraphNode } from '../../components/graph/CustomGraphNode';
+import { CustomGraphNode } from '../../components/graph/custom-graph-node';
 import { PageHeader } from "../../components/page-header"
+import { getTheme } from '../../helper/theme';
 
 const nodeTypes = {
     input: CustomGraphNode,
@@ -18,7 +19,6 @@ const DataFlowOverview = ({ flow }) => {
     const [elements, setElements] = useState(demoElements);
     const onElementsRemove = (elementsToRemove) => setElements((els) => removeElements(elementsToRemove, els));
     const onConnect = (params) => setElements((els) => addEdge({ ...params, animated: true }, els));
-
     return (
         <>
             <PageHeader name={flow.name} />
@@ -31,13 +31,10 @@ const DataFlowOverview = ({ flow }) => {
                     snapToGrid={true}
                     snapGrid={[15, 15]}
                     nodeTypes={nodeTypes}
-                    style={{
-                        minHeight: 600
-                    }}
                 >
                     <MiniMap />
                     <Controls />
-                    <Background color="#aaa" gap={16} />
+                    <Background color="#6b7280" size={.7} gap={16} />
                 </ReactFlow>
             </main>
         </>
