@@ -1,13 +1,18 @@
 import { useState } from 'react';
 import ReactFlow, { removeElements, addEdge, MiniMap, Controls, Background, } from 'react-flow-renderer/nocss';
 import { CustomGraphNode } from '../../components/graph/custom-graph-node';
+import { FilterNode } from '../../components/graph/filter-node';
+import { HttpInputNode } from '../../components/graph/http-input-node';
+import { HttpOutputNode } from '../../components/graph/http-output-node';
 import { PageHeader } from "../../components/page-header"
-import { getTheme } from '../../helper/theme';
 
 const nodeTypes = {
     input: CustomGraphNode,
     custom: CustomGraphNode,
     output: CustomGraphNode,
+    httpIn: HttpInputNode,
+    httpOut: HttpOutputNode,
+    filter: FilterNode,
 };
 
 const onLoad = (reactFlowInstance) => {
@@ -16,7 +21,7 @@ const onLoad = (reactFlowInstance) => {
 };
 
 const DataFlowOverview = ({ flow }) => {
-    const [elements, setElements] = useState(demoElements);
+    const [elements, setElements] = useState(flow.flowElements);
     const onElementsRemove = (elementsToRemove) => setElements((els) => removeElements(elementsToRemove, els));
     const onConnect = (params) => setElements((els) => addEdge({ ...params, animated: true }, els));
     return (
@@ -62,7 +67,7 @@ const demoElements = [
         id: '1',
         type: 'input',
         data: {
-            title: 'Input Node',
+            title: 'HTTP Trigger',
             text: 'Select an input source',
             outputs: [
                 { id: 'a' },
@@ -75,7 +80,7 @@ const demoElements = [
         id: '2',
         type: 'custom',
         data: {
-            title: 'Default Node',
+            title: 'HTTP Out',
             text: 'A node without any output.'
         },
         position: { x: 300, y: -100 },
@@ -84,10 +89,11 @@ const demoElements = [
         id: '3',
         type: 'custom',
         data: {
-            title: 'Default Node',
+            title: 'Filter',
             text: 'Pass through node',
             outputs: [
-                { id: 'a' }
+                { id: 'a' },
+                { id: 'b' }
             ]
         },
         position: { x: 300, y: 100 }
@@ -97,7 +103,7 @@ const demoElements = [
         type: 'output',
         position: { x: 600, y: 0 },
         data: {
-            title: 'Output Node',
+            title: 'HTTP Out',
             text: 'test'
         },
     },

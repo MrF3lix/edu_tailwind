@@ -48,7 +48,7 @@
 
 .react-flow__node {
     border-radius: 3px;
-    width: 150px;
+    min-width: 200px;
     font-size: 12px;
     stroke: $gray-900;
     text-align: center;
