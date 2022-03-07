@@ -2,7 +2,7 @@ import { Handle, Position } from 'react-flow-renderer/nocss'
 
 const calcOutputOffset = (i, length) => length === 1 ? 50 : 80 / length * i + 10
 
-export const Node = ({ data, type, hasInput = true, children }) => {
+export const Node = ({ data, hasInput = true, children }) => {
     return (
         <div className="flex">
             {hasInput &&

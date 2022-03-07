@@ -1,9 +1,9 @@
-import { PageHeader } from "../components/page-header"
+import { PageTitle } from "../components/page-title"
 
 export const Settings = () => {
     return (
         <>
-            <PageHeader name="Settings" />
+            <PageTitle name="Settings" />
             <main>
                 <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
                     <div className="px-4 py-6 sm:px-0">

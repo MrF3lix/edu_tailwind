@@ -1,3 +1,5 @@
+import { Input } from '../form/input'
+import { Select } from '../form/select'
 import { Node } from './node'
 
 const conditions = [
@@ -21,43 +23,20 @@ export const FilterNode = ({ data, type }) => {
     return (
         <Node data={data} type={type}>
             <div className="flex flex-col gap-3">
-                <label className="text-left">
-                    <span className="text-gray-600 text-xs">Field Name</span>
-                    <select className="p-2 border border-gray-200 w-full bg-gray-50 text-sm">
-                        <option>Select Field</option>
-                        {fieldNames.map((field, i) => (
-                            <option
-                                key={i}
-                                value={field.value}
-                                selected={field.value === data.filter.field}
-                            >
-                                {field.name}
-                            </option>
-                        ))}
-                    </select>
-                </label>
-                <label className="text-left">
-                    <span className="text-gray-600 text-xs">Condition</span>
-                    <select className="p-2 border border-gray-200 w-full bg-gray-50 text-sm">
-                        <option>Select Condition</option>
-                        {conditions.map((condition, i) => (
-                            <option
-                                key={i}
-                                value={condition.value}
-                                selected={condition.value === data.filter.condition}
-                            >
-                                {condition.name}
-                            </option>
-                        ))}
-                    </select>
-                </label>
-                <label className="text-left">
-                    <span className="text-gray-600 text-xs">Filter Value</span>
-                    <input
-                        className="p-2 border border-gray-200 w-full bg-gray-50 text-sm"
-                        value={data.filter.value}
-                    />
-                </label>
+                <Select
+                    label="Field Name"
+                    options={fieldNames}
+                    selected={data.filter.field}
+                />
+                <Select
+                    label="Condition"
+                    options={conditions}
+                    selected={data.filter.condition}
+                />
+                <Input
+                    label="Filter Value"
+                    value={data.filter.value}
+                />
             </div>
         </Node>
     )

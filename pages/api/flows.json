@@ -57,7 +57,7 @@
                         "url": "https://api.twitter.com/post/",
                         "method": "post",
                         "contentType": "application/json",
-                        "header": "{\"Authorization\": \"Bearer EIJD81DKFj49283FJKLDIE\"}",
+                        "header": "Authorization: TOKEN",
                         "body": ""
                     }
                 },

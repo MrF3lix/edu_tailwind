@@ -1,15 +1,11 @@
 import { useState } from 'react';
 import ReactFlow, { removeElements, addEdge, MiniMap, Controls, Background, } from 'react-flow-renderer/nocss';
-import { CustomGraphNode } from '../../components/graph/custom-graph-node';
 import { FilterNode } from '../../components/graph/filter-node';
 import { HttpInputNode } from '../../components/graph/http-input-node';
 import { HttpOutputNode } from '../../components/graph/http-output-node';
-import { PageHeader } from "../../components/page-header"
+import { PageTitle } from "../../components/page-title"
 
 const nodeTypes = {
-    input: CustomGraphNode,
-    custom: CustomGraphNode,
-    output: CustomGraphNode,
     httpIn: HttpInputNode,
     httpOut: HttpOutputNode,
     filter: FilterNode,
@@ -26,7 +22,7 @@ const DataFlowOverview = ({ flow }) => {
     const onConnect = (params) => setElements((els) => addEdge({ ...params, animated: true }, els));
     return (
         <>
-            <PageHeader name={flow.name} />
+            <PageTitle name={flow.name} />
             <main>
                 <ReactFlow
                     elements={elements}
@@ -60,74 +56,3 @@ export const getServerSideProps = async (context) => {
 
 
 export default DataFlowOverview
-
-
-const demoElements = [
-    {
-        id: '1',
-        type: 'input',
-        data: {
-            title: 'HTTP Trigger',
-            text: 'Select an input source',
-            outputs: [
-                { id: 'a' },
-                { id: 'b' }
-            ]
-        },
-        position: { x: 0, y: 0 },
-    },
-    {
-        id: '2',
-        type: 'custom',
-        data: {
-            title: 'HTTP Out',
-            text: 'A node without any output.'
-        },
-        position: { x: 300, y: -100 },
-    },
-    {
-        id: '3',
-        type: 'custom',
-        data: {
-            title: 'Filter',
-            text: 'Pass through node',
-            outputs: [
-                { id: 'a' },
-                { id: 'b' }
-            ]
-        },
-        position: { x: 300, y: 100 }
-    },
-    {
-        id: '4',
-        type: 'output',
-        position: { x: 600, y: 0 },
-        data: {
-            title: 'HTTP Out',
-            text: 'test'
-        },
-    },
-    {
-        id: 'e1-2',
-        source: '1',
-        sourceHandle: 'a',
-        target: '2',
-        animated: true,
-        type: 'default'
-    },
-    {
-        id: 'e1-3',
-        source: '1',
-        sourceHandle: 'b',
-        target: '3',
-        animated: true,
-        type: 'default'
-    },
-    {
-        id: 'e3-4',
-        source: '3',
-        target: '4',
-        animated: true,
-        type: 'default'
-    },
-]

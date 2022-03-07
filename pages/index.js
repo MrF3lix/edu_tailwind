@@ -1,11 +1,11 @@
-import { DataFlowListItem } from "../components/data-flow-list-item"
-import { List } from "../components/list"
-import { PageHeader } from "../components/page-header"
+import { DataFlowListItem } from "../components/list/data-flow-list-item"
+import { List } from "../components/list/list"
+import { PageTitle } from "../components/page-title"
 
 export const Dashboard = ({ data }) => {
     return (
         <>
-            <PageHeader name="Dashboard" />
+            <PageTitle name="Dashboard" />
             <main>
                 <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
                     <div className="px-4 py-6 sm:px-0">
