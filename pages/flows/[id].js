@@ -18,6 +18,7 @@ const onLoad = (reactFlowInstance) => {
 
 const DataFlowOverview = ({ flow }) => {
     const [elements, setElements] = useState(flow.flowElements);
+
     const onElementsRemove = (elementsToRemove) => setElements((els) => removeElements(elementsToRemove, els));
     const onConnect = (params) => setElements((els) => addEdge({ ...params, animated: true }, els));
     return (
@@ -43,7 +44,7 @@ const DataFlowOverview = ({ flow }) => {
 }
 
 export const getServerSideProps = async (context) => {
-    const res = await fetch(`http://localhost:3000/api/flows/${context.query.id}`)
+    const res = await fetch(`${process.env.BASE_URL}/api/flows/${context.query.id}`)
     const flow = await res.json()
 
     context.res.setHeader(

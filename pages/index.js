@@ -20,7 +20,7 @@ export const Dashboard = ({ data }) => {
 }
 
 export const getServerSideProps = async (context) => {
-    const res = await fetch(`http://localhost:3000/api/flows`)
+    const res = await fetch(`${process.env.BASE_URL}/api/flows`)
     const data = await res.json()
 
     context.res.setHeader(
