@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { useState } from 'react';
 import ReactFlow, { removeElements, addEdge, MiniMap, Controls, Background, } from 'react-flow-renderer/nocss';
 import { FilterNode } from '../../components/graph/filter-node';
@@ -23,6 +24,9 @@ const DataFlowOverview = ({ flow }) => {
     const onConnect = (params) => setElements((els) => addEdge({ ...params, animated: true }, els));
     return (
         <>
+            <Head>
+                <title>Flooq | {flow.name}</title>
+            </Head>
             <PageTitle name={flow.name} />
             <main>
                 <ReactFlow

@@ -1,3 +1,4 @@
+import Head from "next/head"
 import { DataFlowListItem } from "../components/list/data-flow-list-item"
 import { List } from "../components/list/list"
 import { PageTitle } from "../components/page-title"
@@ -5,6 +6,9 @@ import { PageTitle } from "../components/page-title"
 export const Dashboard = ({ data }) => {
     return (
         <>
+            <Head>
+                <title>Flooq | Dashboard</title>
+            </Head>
             <PageTitle name="Dashboard" />
             <main>
                 <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">

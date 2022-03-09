@@ -1,8 +1,12 @@
+import Head from "next/head"
 import { PageTitle } from "../components/page-title"
 
 export const Settings = () => {
     return (
         <>
+            <Head>
+                <title>Flooq | Settings</title>
+            </Head>
             <PageTitle name="Settings" />
             <main>
                 <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
